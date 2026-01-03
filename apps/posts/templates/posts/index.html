@@ -1,4 +1,21 @@
 {% extends 'posts/base.html' %}
 {% block title %}Home page{% endblock %}
 {% block content %}
+    <ul class="card-container">
+        {% for post in posts %}
+            <li class="card">
+                <!-- Photo -->
+                <div class="cover">
+                </div>
+                <!-- Text content -->
+                <div class="text-content">
+                    <h3>{{ post.title }}</h3>
+                    <p>
+                        {{ post.content|slice:":30" }}
+                    </p>
+                    <span>{{ post.author }}</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
