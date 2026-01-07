@@ -6,12 +6,18 @@
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    min-height: 100vh;
-    padding: 10px 20px;
+}
+
+main {
+    margin-top: 80px;
+    max-width: 800px;
+    margin: 80px auto 0;
+    padding: 20px;
 }
 
 nav {
@@ -19,6 +25,16 @@ nav {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+nav h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(50, 50, 233);
 }
 
 nav ul {
@@ -30,7 +46,8 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #ccc;
+    color: #000;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -45,4 +62,44 @@ nav button {
     color: white;
     font-weight: bold;
     font-size: 18px;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form button {
+    padding: 10px;
+    border: none;
+    background: rgb(50, 50, 233);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
 }

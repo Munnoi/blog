@@ -12,14 +12,16 @@
     <nav>
         <h1>MyBlog</h1>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'view_posts' %}">Home</a></li>
             <li><a href="#">All Posts</a></li>
             <li><a href="#">Login</a></li>
         </ul>
-        <button type="button">Create Post</button>
+        <a href="{% url 'create_post' %}">Create Post</a>
     </nav>
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
     <!-- Footer -->
     <footer>
         <p>
