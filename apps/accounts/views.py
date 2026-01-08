@@ -9,15 +9,15 @@ User = get_user_model()
 def login_view(request):
     if request.method == "POST":
         # Getting the 'email' and 'password' from the submitted form
-        email = request.post.get("email")
-        password = request.post.get("password")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
 
         user = authenticate(
             request, username=email, password=password
         )  # Authenticating whether the credentials match. If didn't match `authenticate` returns 'None'
         if user:
             login(request, user)  # Creating a session with the user credentials
-            return redirect("home")
+            return redirect("posts:view_posts")
         else:
             messages.error(
                 request, "Invalid email or password"
@@ -29,9 +29,9 @@ def login_view(request):
 def register_view(request):
     if request.method == "POST":
         # Getting the 'email', 'password' and 'password2' from the submitted form
-        email = request.post.get("email")
-        password = request.post.get("password")
-        password2 = request.post.get("password2")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        password2 = request.POST.get("password2")
 
         # Basic validation
         if not email or not password or not password2:
@@ -44,14 +44,14 @@ def register_view(request):
             return redirect("register")
 
         # Email uniqueness check
-        if User.objects.filter(email=email).exits():
+        if User.objects.filter(email=email).exists():
             messages.error(request, "Email already registered")
             return redirect("register")
 
         User.objects.create_user(email=email, password=password)
 
         messages.success(request, "Account created successfully")
-        return redirect("login")
+        return redirect("accounts:login")
     return render(request, "accounts/register.html")
 
 
@@ -59,4 +59,4 @@ def register_view(request):
 def logout_view(request):
     logout(request)  # Deletes session data
     messages.success(request, "You have been logged out successfully")
-    return redirect("login")
+    return redirect("accounts:login")

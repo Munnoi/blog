@@ -11,7 +11,7 @@
     <div class="auth-container">
       <h2>Register</h2>
 
-      <form method="POST" class="auth-form">
+      <form method="POST" class="auth-form" action="{% url 'accounts:register' %}">
         {% csrf_token %}
 
         <div class="form-group">

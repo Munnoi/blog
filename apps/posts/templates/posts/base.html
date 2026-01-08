@@ -12,11 +12,15 @@
     <nav>
         <h1>MyBlog</h1>
         <ul>
-            <li><a href="{% url 'view_posts' %}">Home</a></li>
+            <li><a href="{% url 'posts:view_posts' %}">Home</a></li>
             <li><a href="#">All Posts</a></li>
-            <li><a href="#">Login</a></li>
+            {% if user.is_authenticated %}
+                <a href="{% url 'accounts:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}">Login</a>
+            {% endif %}
         </ul>
-        <a href="{% url 'create_post' %}">Create Post</a>
+        <a href="{% url 'posts:create_post' %}">Create Post</a>
     </nav>
     <main>
         {% block content %}

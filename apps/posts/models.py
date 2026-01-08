@@ -18,5 +18,18 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug: # Only generate a slug if it doesn't already exist
+            base_slug = slugify(self.title) # Converts the title into a URL-friendly string
+            slug = base_slug
+            counter = 1 # This number will be appended if duplicates exist
+
+            while Post.objects.filter(slug=slug).exists(): # Checks if any post already have this slug
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+
+            self.slug = slug # Assigns the final unique slug to the post
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title

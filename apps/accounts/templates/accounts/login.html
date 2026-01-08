@@ -11,7 +11,7 @@
     <div class="auth-container">
       <h2>Login</h2>
 
-      <form method="POST" class="auth-form">
+      <form method="POST" class="auth-form" action="{% url 'accounts:login' %}">
         {% csrf_token %}
 
         <div class="form-group">
@@ -36,7 +36,7 @@
       {% endif %}
 
       <div class="auth-footer">
-        Don't have an account? <a href="{% url 'register' %}">Register here</a>
+        Don't have an account? <a href="{% url 'accounts:register' %}">Register here</a>
       </div>
     </div>
   </body>
