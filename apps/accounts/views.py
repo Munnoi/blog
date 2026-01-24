@@ -36,17 +36,17 @@ def register_view(request):
         # Basic validation
         if not email or not password or not password2:
             messages.error(request, "All fields are required")
-            return redirect("register")
+            return redirect("accounts:register")
 
         # Password match check
         if password != password2:
             messages.error(request, "Passwords don't match")
-            return redirect("register")
+            return redirect("accounts:register")
 
         # Email uniqueness check
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email already registered")
-            return redirect("register")
+            return redirect("accounts:register")
 
         User.objects.create_user(email=email, password=password)
 
