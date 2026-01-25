@@ -9,8 +9,9 @@ def view_posts(request):
     return render(request, "posts/index.html", {"posts": posts})
 
 
-def view_post(request):
-    pass
+def view_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    return render(request, "posts/detail.html", {"post": post})
 
 
 @login_required(login_url="accounts:login")
@@ -28,5 +29,8 @@ def edit_post(request):
     pass
 
 
-def delete_post(request):
-    pass
+def delete_post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post.delete()
+    return redirect("posts:view_posts")
+    

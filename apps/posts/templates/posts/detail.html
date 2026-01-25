@@ -1,0 +1,18 @@
+{% extends 'posts/base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+        <li class="card">
+            <!-- Photo -->
+            <div class="cover">
+            </div>
+            <!-- Text content -->
+            <div class="text-content">
+                <h3>{{ post.title }}</h3>
+                <p>
+                    {{ post.content }}
+                </p>
+                <span>{{ post.author }}</span>
+                <a class="delete_btn" href="{% url 'posts:delete_post' post.pk %}">Delete</a>
+            </div>
+        </li>
+{% endblock %}
