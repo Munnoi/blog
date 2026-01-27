@@ -60,3 +60,13 @@ def logout_view(request):
     logout(request)  # Deletes session data
     messages.success(request, "You have been logged out successfully")
     return redirect("accounts:login")
+
+@login_required
+def delete_account_view(request):
+    if request.method == "POST":
+        user = request.user
+        logout(request)  # Log out the user before deleting the account
+        user.delete()  # Delete the user account
+        messages.success(request, "Your account has been deleted successfully.")
+        return redirect("accounts:register")
+    return render(request, "accounts/delete_account.html")

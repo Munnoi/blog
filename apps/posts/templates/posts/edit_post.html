@@ -1,0 +1,29 @@
+{% extends 'posts/base.html' %}
+{% block title %}Edit post{% endblock %}
+{% block content %}
+<form method="POST" class="form" action="{% url 'posts:edit_post' post.id %}">
+  {% csrf_token %}
+  <div>
+    <label for="title">Title</label>
+    <input
+      name="title"
+      type="text"
+      id="title"
+      placeholder="Enter the title..."
+      value="{{ post.title }}"
+    />
+  </div>
+  <div>
+    <label for="content">Content</label>
+    <input
+      name="content"
+      type="text"
+      id="content"
+      placeholder="Enter the content..."
+      value="{{ post.content }}"
+    />
+  </div>
+  <button type="submit">Edit</button>
+  <a href="{% url 'posts:view_posts' %}" class="btn-cancel">Cancel</a>
+</form>
+{% endblock %}

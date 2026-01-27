@@ -1,0 +1,15 @@
+<h2>Delete Account</h2>
+
+<p>
+    This action is <strong>permanent</strong>.
+    All your data will be deleted.
+</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" style="color: red;">
+        Yes, delete my account
+    </button>
+</form>
+
+<a href="{% url 'posts:view_posts' %}">Cancel</a>

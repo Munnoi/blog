@@ -1,66 +1,95 @@
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    padding: 20px;
-    cursor: pointer;                
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
 }
 
 .card {
-    list-style: none;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background-color: #fff;
-    transition: transform 0.2s;
+  list-style: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 600px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.2s;
 }
 
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .text-content {
-    padding: 16px;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: color 0.2s;
+  padding: 16px;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 .text-content:hover {
-    color: #808080;
+  color: #808080;
 }
 
 .text-content h3 {
-    margin: 0;
-    margin-bottom: 8px;
+  margin: 0;
+  margin-bottom: 8px;
 }
 
 .text-content p {
-    margin: 0;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .text-content span {
-    color: #808080;
-    font-weight: normal;
-    font-size: 14px;
-    display: block;
-    text-align: right;
+  color: #808080;
+  font-weight: normal;
+  font-size: 14px;
+  display: block;
+  text-align: right;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .delete_btn {
-    padding: 5px 10px;
-    border: none;
-    background: rgb(233, 50, 50);
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  background: rgb(233, 50, 50);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
 }
 
+.edit_btn {
+  padding: 5px 10px;
+  border: none;
+  background: rgb(50, 115, 233);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn_cancel {
+  padding: 5px 10px;
+  border: none;
+  background: gray;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
